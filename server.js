@@ -3,6 +3,7 @@ const { graphqlHTTP } = require('express-graphql');
 
 const dotenv = require('dotenv');
 const path = require('path');
+const cors = require('cors');
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -15,6 +16,7 @@ connectDB();
 
 const app=express();
 app.use(express.json());
+app.use(cors());
 
 
 app.use('/graphql', graphqlHTTP({
